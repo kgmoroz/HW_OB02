@@ -48,17 +48,17 @@ class Admin(User):
         # Добавляет пользователя в список, если он еще не добавлен
         if user not in self._user_list:
             self._user_list.append(user)
-            print(f"User {user.get_name()} added.")
+            print(f"Пользователь {user.get_name()} добавлен.")
         else:
-            print("User already in list.")
+            print("Пользователь уже был добавлен ранее.")
 
     def remove_user(self, user):
         # Удаляет пользователя из списка, если он в нем присутствует
         if user in self._user_list:
             self._user_list.remove(user)
-            print(f"User {user.get_name()} removed.")
+            print(f"Пользователь {user.get_name()} удален.")
         else:
-            print("User not found in list.")
+            print("Пользователь не найден.")
 
     def list_users(self):
         # Выводит информацию о всех пользователях в списке
@@ -70,24 +70,22 @@ class Admin(User):
         return f"Admin(ID={self._user_id}, Name={self._name}, Access Level={self._access_level})"
 
 
-# Пример использования
-if __name__ == "__main__":
-    # Создаем администратора
-    admin = Admin("1", "Alice")
+# Создаем администратора
+admin = Admin("1", "Alex")
 
-    # Создаем несколько пользователей
-    user1 = User("2", "Bob")
-    user2 = User("3", "Charlie")
+# Создаем несколько пользователей
+user1 = User("2", "Bob")
+user2 = User("3", "David")
 
-    # Администратор добавляет пользователей
-    admin.add_user(user1)
-    admin.add_user(user2)
+# Администратор добавляет пользователей
+admin.add_user(user1)
+admin.add_user(user2)
 
-    # Вывод списка пользователей
-    admin.list_users()
+# Вывод списка пользователей
+admin.list_users()
 
-    # Удаление пользователя
-    admin.remove_user(user1)
+# Удаление пользователя
+admin.remove_user(user1)
 
-    # Вывод списка пользователей после удаления
-    admin.list_users()
+# Вывод списка пользователей после удаления
+admin.list_users()
